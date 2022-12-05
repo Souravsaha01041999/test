@@ -1,0 +1,24 @@
+<div class="holder">
+<table width="100%">
+    <tr>
+        <td>
+            <img src="https://assets.cntraveller.in/photos/61601b9b043b5be661f1cb42/3:2/w_1620,h_1080,c_limit/taj-lakefront-bhopal-lead.jpg" 
+            width="60"
+            height="50"
+            alt="">
+        </td>
+        <td>
+            <div *ngIf="isShowNavigation" class="menueHolder">
+                <a class="stylea" routerLinkActive="selecteda" [routerLinkActiveOptions]="{ exact: true }" routerLink="/">Home</a>
+                <a class="stylea" routerLinkActive="selecteda" routerLink="/rooms">Rooms</a>
+                <a class="stylea" routerLinkActive="selecteda" routerLink="/cart">My Cart</a>
+                <a *ngIf="isAdmin" class="stylea" routerLinkActive="selecteda" routerLink="/allorders">Orders</a>
+                <a class="stylea" routerLinkActive="selecteda" routerLink="/profile">My Profile</a>
+            </div>
+        </td>
+        <td align="right">
+            <a class="stylea" routerLinkActive="selecteda" routerLink="/login">{{ logMessage }}</a>
+        </td>
+    </tr>
+</table>
+</div>

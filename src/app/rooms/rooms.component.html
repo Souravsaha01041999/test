@@ -1,0 +1,38 @@
+<div *ngIf="showMessage" display-message [message]="disMsg"></div>
+<h1 *ngIf="isLoading">{{ myMessage }}</h1>
+<!-- LIST VIEW -->
+<div class="holder container">
+    <div class="row">
+        <div *ngFor="let room of allRooms" class="list">
+            <img class="img-styl" src="{{ room.image }}" width="400" height="200">
+            <br><br>
+            <div class="content">
+                <p>Room number: <font #hotelname>{{ room.hotel_name}}</font></p>
+                <p>Bed: {{ room.bed }}</p>
+                <p>flore: {{ room.location }}</p>
+                <p style="cursor: pointer;" title="{{ room.details }}">Others details: {{ room.details | shortwritting }}</p>
+                <p style="color: red;">Price: {{ room.price }} /-</p>
+            </div>
+            <input #date type="date" (input)="onCheckDate($event)" class="form-control" style="cursor: pointer;">
+            <br>
+            <button (click)="navigateDetails(hotelname)" class="btn btn-danger button-custom2">VISIT</button>
+            <button (click)="setPopup(hotelname,date)" class="btn btn-warning button-custom1">Add +</button>
+        </div>
+    </div>
+</div>
+<!-- END LIST VIEW -->
+
+<!-- POPUP -->
+<div *ngIf="isPopupShow" class="popup-holder">
+    <div class="popup">
+        <div class="popup-container">
+            <font class="popup-text"> Are You sure to book This room? </font>
+            <div class="button-holder">
+                <button (click)="onAddButton()" class="btn btn-primary my-btn">OK</button>
+                &nbsp;
+                <button (click)="closePopup()" class="btn btn-danger my-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END POPUP -->

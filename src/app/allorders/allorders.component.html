@@ -1,0 +1,49 @@
+<div *ngIf="showMessage" display-message [message]="disMsg"></div>
+<div class="radio-holder">
+    <input type="radio" (input)="onFilterChange($event)" value="all" name="filter" checked> &nbsp; <font class="pending">All</font>
+    &nbsp;
+    <input type="radio" (input)="onFilterChange($event)" value="pending" name="filter"> &nbsp; <font class="pending">Pending</font>
+    &nbsp;
+    <input type="radio" (input)="onFilterChange($event)" value="confirmed" name="filter"> &nbsp; <font class="conf">Confirm</font>
+    &nbsp;
+    <input type="radio" (input)="onFilterChange($event)" value="rejected" name="filter"> &nbsp; <font class="rej">Reject</font>
+    &nbsp;
+</div>
+<br>
+<div class="data-holder">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Booking ID</th>
+                <th scope="col">Customer ID</th>
+                <th scope="col">Room Number</th>
+                <th scope="col">Date</th>
+                <th scope="col">Status</th>
+                <th scope="col">Set status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let list of displayData">
+                <th scope="row" (click)="redirectCd(bid)" #bid>{{ list.bookingid }}</th>
+                <td>{{ list.cid }}</td>
+                <td>{{ list.hotel_name }}</td>
+                <td>{{ list.date }}</td>
+                <td>
+                    <div [ngSwitch]="list.status">
+                        <p class="pending" *ngSwitchCase="'pending'">Pending</p>
+                        <p class="rej" *ngSwitchCase="'rejected'">Rejected</p>
+                        <p class="conf" *ngSwitchCase="'confirmed'">Confirmed</p>
+                    </div>
+                </td>
+                <td>
+                    <div class="holder" *ngIf="list.status=='pending'">
+                        <input type="hidden" #sendbid name="bid" value="{{ list.bookingid }}">
+                        <input type="radio" #sendrad1 name="setstatus" value="confirmed">Confirmed
+                        <input type="radio" #sendrad2 name="setstatus" value="rejected">Rejected
+                        <button (click)="onSendBtn(sendbid,sendrad1,sendrad2)" class="btn btn-success">Save</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

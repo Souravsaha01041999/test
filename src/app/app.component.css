@@ -1,0 +1,38 @@
+.color{
+    background-color: red !important;
+}
+.footer{
+    margin-top: 150px;
+    background-color: blueviolet;
+    width: 100%;
+    height: 50px;
+    z-index: 1;
+    text-align: center;
+
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+.text-foter-style
+{
+    position: relative;
+    top: 15%;
+    font-size: 25px;
+    color: white;
+}
+
+.user-color
+{
+    color: rgb(89, 10, 10);font-weight: bold;
+}
+
+@media screen and (max-width: 900px) {
+    .text-foter-style
+    {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    
+}

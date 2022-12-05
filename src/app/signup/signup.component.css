@@ -1,0 +1,38 @@
+.holder
+{
+    position: relative;
+    padding: 20px;
+    width: 95%;
+    left: 20px;
+    border-radius: 3px;
+    box-shadow: 0px 0px 3px 3px rgb(201, 196, 196);
+}
+.imgholder
+{
+    position: relative;
+    padding: 20px;
+    width: max-content;
+    background-color: rgb(219, 219, 219);
+    bottom: 130px;
+}
+
+.image-upload>input {
+    display: none;
+}
+.im
+{
+    border-radius: 50%;
+}
+.image-upload{
+    position:relative;
+    width: 20px;
+    left: 40%;
+    bottom: 30px;
+}
+.text-holder
+{
+    text-align: center;
+    width: max-content;
+    position: relative;
+    left: 35px;
+}

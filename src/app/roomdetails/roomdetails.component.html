@@ -1,0 +1,22 @@
+<table>
+    <tr>
+        <td>
+            <img (click)="onClickImage()" *ngIf="isVisable" style="cursor: pointer;" width="600" height="400" src="{{ img }}" alt="">
+        </td>
+        <td>
+            <div class="holder">
+                <p>Room Number: <font>{{ roomnumber }}</font></p>
+                <p>Bed: <font>{{ bed }}</font></p>
+                <p>Flowre: <font>{{ flr }}</font></p>
+                <p>Others details: <font>{{ det }}</font></p>
+                <p><font style="color: red; font-size: 18px;">Price: {{ price }} /-</font></p>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<!-- CLICK FULL IMAGE -->
+<div (click)="onClickCloseImage()" *ngIf="isImageShow" class="img-holder">
+    <img class="img-pos" width="850" height="600" src="{{ img }}" alt="">
+</div>
+<!-- END FULL IMAGE -->

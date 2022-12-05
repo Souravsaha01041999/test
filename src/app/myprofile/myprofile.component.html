@@ -1,0 +1,45 @@
+<div *ngIf="showMessage" display-message [message]="disMsg"></div>
+<table width="100%">
+    <tr>
+        <td align="center">Customer ID</td>
+        <td>{{ userDetails.cid }}</td>
+    </tr>
+    <tr>
+        <td align="center">User Name</td>
+        <td>{{ userDetails.username }}</td>
+    </tr>
+    <tr>
+        <td align="center">Name</td>
+        <td><input #name class="form-control text-width-custom" type="text" value="{{ userDetails.name }}"></td>
+    </tr>
+    <tr>
+        <td align="center">Email</td>
+        <td>{{ userDetails.email }}</td>
+    </tr>
+    <tr>
+        <td align="center">Address</td>
+        <td><textarea #address class="form-control text-width-custom" cols="30" rows="5">{{ userDetails.address }}</textarea></td>
+    </tr>
+    <tr>
+        <td align="center">Addhar Card Number</td>
+        <td>{{ userDetails.addharnumber }}</td>
+    </tr>
+    <tr>
+        <td align="center">Modified Date</td>
+        <td>{{ userDetails.mdate }}</td>
+    </tr>
+    <tr>
+        <td align="center">Mobile</td>
+        <td><input #number class="form-control text-width-custom" type="number" value="{{ userDetails.mobile }}"></td>
+    </tr>
+    <tr>
+        <td align="center">Image</td>
+        <td><img src="{{ userDetails.userimage }}" width="200" height="200"></td>
+    </tr>
+    <tr>
+        <td align="center">Addhar Card Image</td>
+        <td><img src="{{ userDetails.addharimage }}" width="200" height="200"></td>
+    </tr>
+    <td></td>
+    <td><button (click)="onUpdateData(name,address,number)" class="btn btn-primary my-button">UPDATE</button></td>
+</table>

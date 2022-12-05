@@ -1,0 +1,42 @@
+<br>
+<div *ngIf="showMessage" display-message [message]="disMsg"></div>
+<div class="select-holdeer">
+  <select (change)="setVal($event)" class="form-select my-style-select">
+    <option value="5">Show 5</option>
+    <option selected value="10">Show 10</option>
+    <option value="15">Show 15</option>
+    <option value="20">Show 20</option>
+  </select>
+</div>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Booking ID</th>
+        <th scope="col">Customet ID</th>
+        <th scope="col">Room Number</th>
+        <th scope="col">Date</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let detail of displayList">
+        <td scope="row">{{ detail.bookingid }}</td>
+        <td>{{ detail.cid }}</td>
+        <td>{{ detail.hotel_name }}</td>
+        <td>{{ detail.date }}</td>
+        <td>
+          <div [ngSwitch]="detail.status">
+            <p class="pending" *ngSwitchCase="'pending'">Pending</p>
+            <p class="rej" *ngSwitchCase="'rejected'">Rejected</p>
+            <p class="conf" *ngSwitchCase="'confirmed'">Confirmed</p>
+        </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="page-sholder">
+    <p>Page No. {{ page }}</p>
+  </div>
+  <div class="btnhodler">
+    <button *ngIf="isLeft" (click)="previousItem()" class="btn btn-success">&#11164;</button> &nbsp; <button *ngIf="isRight" (click)="nextItem()" class="btn btn-success">&#11166;</button>
+  </div>

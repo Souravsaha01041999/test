@@ -1,0 +1,42 @@
+.body{
+    background-color: red !important;
+}
+.holder
+{
+    position: relative;
+    left: 18%;
+    top: 50px;
+    width: max-content;
+    border: 2px solid rgb(110, 24, 24);
+}
+
+.holder2
+{
+    position: relative;
+    top: 90px;
+    left: 30%;
+    width: max-content;
+    color: rgb(67, 1, 43);
+}
+.textStyle
+{
+    font-weight: bold;
+
+}
+
+.bnr
+{
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: rgb(102, 112, 147);
+}
+.home-text-style
+{
+    position: relative;
+    font-size: 60px;
+    color: rgb(212, 212, 212);
+    left: 32%;
+    text-shadow: 8px 8px 8px #490d31;
+    font-weight: bold;
+}

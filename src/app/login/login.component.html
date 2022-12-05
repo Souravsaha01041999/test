@@ -1,0 +1,36 @@
+<div class="loginholder">               <!-- THIS IS FOR HIDE THE NAVIGATION BAR -->
+    <div *ngIf="showMessage" display-message [message]="disMsg"></div>
+    <!-- THIS IS LOGIN PANEL -->
+    <div *ngIf="!isLogin" class="holder">
+        <div class="login-style-up">
+            <img class="imgstyle" src="https://cdn0.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/user-male-circle-blue-512.png">
+            &nbsp;
+            <font class="font-style-my">Login</font>
+        </div>
+        <br>
+        <img *ngIf="tick" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAPwvO3zamGAKfLeFP_8HEjppEjHJsLh268Q&usqp=CAU" width="25" height="15">
+        <font class="error-style" *ngIf="cross">Email Does Not Exist</font>
+        <br *ngIf="tick||cross">
+        <font class="emailID-style">Email ID</font>
+        <input class="form-control text-my-style" (input)="onInputEmail(email)" [disabled]="!isActive" type="text" #email placeholder="Email Id">
+        
+        <br *ngIf="!showSendOTP">
+        <font *ngIf="showSendOTP" (click)="sendOTP(email)" class="send-otp">SEND OTP</font>
+        <br *ngIf="showSendOTP">
+        <font class="emailID-style">OTP</font>
+        <input class="form-control text-my-style" #otp type="number" placeholder="OTP">
+        <br>
+        <button (click)="onLogin(otp)" class="btn btn-primary pos">Login</button>
+        <br>
+        <a class="signup" routerLink="/signup">You don't have account click here?</a>
+    </div>
+    <!-- END LOGIN PANLE -->
+
+    <!-- THIS IS MESSAGE PANEL -->
+    <div *ngIf="isLogin" class="holder">
+        <br><br><br>
+        <h1>Please Wait... <br>Visit Again!</h1>
+        <br><br><br>
+    </div>
+    <!-- END PANEL -->
+</div>

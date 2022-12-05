@@ -1,0 +1,41 @@
+.holder
+{
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    background-color: blueviolet;
+    padding: 10px;
+}
+.menueHolder
+{
+    position: relative;
+    width: max-content;
+}
+.stylea{
+    font-size: 25px;
+    margin-right: 50px;
+    color: white;
+    text-decoration: none;
+}
+.stylea:hover
+{
+    color: rgb(163, 163, 163);
+}
+.selecteda{
+    padding: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: rgb(22, 50, 152);
+}
+
+@media screen and (max-width: 900px) {
+    .stylea
+    {
+        font-size: 15px;
+        margin-right: 10px;
+    }
+    .menueHolder
+    {
+        left: 10px;
+    }
+}

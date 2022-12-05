@@ -1,0 +1,41 @@
+.pending
+{
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+}
+.conf{
+    color: green;
+    font-size: 15px;
+    font-weight: bold;
+}
+.rej
+{
+    color: red;
+    font-size: 15px;
+    font-weight: bold;
+}
+.btnhodler
+{
+    position: absolute;
+    width: max-content;
+    left: 80%;
+}
+.page-sholder
+{
+    position: absolute;
+    width: max-content;
+    left: 40%;
+    color: red;
+}
+.my-style-select
+{
+    width: 150px;
+}
+
+.select-holdeer
+{
+    width: max-content;
+    position: relative;
+    left: 80%;
+}
