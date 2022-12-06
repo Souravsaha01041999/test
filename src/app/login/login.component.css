@@ -32,7 +32,7 @@
 .login-style-up
 {
     position: relative;
-    left: 20%;
+    left: 10%;
 }
 .signup
 {
@@ -47,8 +47,7 @@
 }
 .imgstyle
 {
-    border-radius: 50%;
-    width: 50px;
+    width: 200px;
     height: 50px;
 }
 
