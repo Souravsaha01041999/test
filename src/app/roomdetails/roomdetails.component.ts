@@ -32,8 +32,6 @@ export class RoomdetailsComponent implements OnInit {
     }
     else
     {
-      // let room=this.route.snapshot.params["roomnumber"];
-
       let room=this.route.snapshot.queryParams['roomnumber'];
 
       this.http.get("https://workonits.co.in/OFFICE/getRoomDetails.php?room="+room)
