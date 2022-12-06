@@ -35,7 +35,8 @@ const myRouts:Routes=[
   {path:'cart',component:CartComponent},
   {path:'signup',component:SignupComponent},
   {path:'allorders',component:AllordersComponent},
-  {path:'roomdetails/:roomnumber',component:RoomdetailsComponent},
+  // {path:'roomdetails/:roomnumber',component:RoomdetailsComponent},
+  {path:'roomdetails',component:RoomdetailsComponent},
   {path:'cdetails/:bid',component:CustomerdetailsComponent},
   {path:'profile',component:MyprofileComponent},
   {path:'**',component:NotFoundComponent}

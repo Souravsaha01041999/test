@@ -22,7 +22,7 @@ export class RoomdetailsComponent implements OnInit {
 
 
   ngOnInit(): void {
-    let room=this.route.snapshot.params["roomnumber"];
+    
 
     let id=String(localStorage.getItem("id"));
     if(id=="null")
@@ -32,6 +32,10 @@ export class RoomdetailsComponent implements OnInit {
     }
     else
     {
+      // let room=this.route.snapshot.params["roomnumber"];
+
+      let room=this.route.snapshot.queryParams['roomnumber'];
+
       this.http.get("https://workonits.co.in/OFFICE/getRoomDetails.php?room="+room)
       .subscribe((response)=>{
         this.roomnumber=response["hotel_name"];

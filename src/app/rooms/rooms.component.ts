@@ -95,7 +95,8 @@ export class RoomsComponent implements OnInit {
 
   navigateDetails(room:HTMLParagraphElement)
   {
-    this.router.navigate(["roomdetails/"+room.innerHTML]);
+    // this.router.navigate(["roomdetails/"+room.innerHTML]);
+    this.router.navigate(["roomdetails"],{queryParams:{roomnumber:room.innerHTML}});
   }
 
   onCheckDate(event:Event)
