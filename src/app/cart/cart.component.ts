@@ -60,7 +60,7 @@ export class CartComponent implements OnInit {
         },3000);
       });
     }
-  }6
+  }
 
   previousItem()
   {
