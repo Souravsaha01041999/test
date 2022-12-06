@@ -8,14 +8,16 @@
                 <div class="imgholder">
                     <img
                     src="https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-Image.png"
-                    width="250"
+                    width="210"
                     height="200"
+                    class="my-img"
+                    #showimg
                     alt="">
                     <div class="image-upload">
                         <label for="file_input">
                           <img class="im" src="https://cdn.imgbin.com/8/11/2/imgbin-computer-icons-symbol-icon-design-google-plus-4hCuU4NgKSvwkEKQ2MDNtnGHv.jpg" width="45" height="40">
                         </label>
-                        <input #img accept="image/*" id="file_input" name="file_input" type="file">
+                        <input #img (input)="getImage(img,showimg)" accept="image/*" id="file_input" name="file_input" type="file">
                     </div>
                     <div class="text-holder">
                         <font><b>User Image</b></font>
@@ -64,4 +66,7 @@
             </td>
         </tr>
     </table>
+    <div class="btn-holder">
+        <button (click)="onSignup(aimg,img)" class="btn btn-primary btn-lg btn-block my-btn-style">Signup</button>
+    </div>
 </div>

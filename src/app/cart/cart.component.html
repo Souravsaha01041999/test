@@ -38,5 +38,7 @@
     <p>Page No. {{ page }}</p>
   </div>
   <div class="btnhodler">
-    <button *ngIf="isLeft" (click)="previousItem()" class="btn btn-success">&#11164;</button> &nbsp; <button *ngIf="isRight" (click)="nextItem()" class="btn btn-success">&#11166;</button>
+    <button pButton *ngIf="isLeft" (click)="previousItem()" type="button" label="&#11164;" ></button>
+    &nbsp;
+    <button pButton *ngIf="isRight" (click)="nextItem()" type="button" label="&#11166;" ></button>
   </div>

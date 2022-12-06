@@ -121,4 +121,10 @@ export class SignupComponent implements OnInit {
     }
   }
 
+  getImage(img:HTMLInputElement,disp:HTMLImageElement)
+  {
+    disp.src=URL.createObjectURL(img.files[0]);
+    console.log(img.files[0].name);
+  }
+
 }

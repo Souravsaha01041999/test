@@ -38,9 +38,11 @@
                 <td>
                     <div class="holder" *ngIf="list.status=='pending'">
                         <input type="hidden" #sendbid name="bid" value="{{ list.bookingid }}">
-                        <input type="radio" #sendrad1 name="setstatus" value="confirmed">Confirmed
-                        <input type="radio" #sendrad2 name="setstatus" value="rejected">Rejected
-                        <button (click)="onSendBtn(sendbid,sendrad1,sendrad2)" class="btn btn-success">Save</button>
+                        <font class="radio-s">
+                            <input type="radio" #sendrad1 name="setstatus" value="confirmed">Confirmed
+                            <input type="radio" #sendrad2 name="setstatus" value="rejected">Rejected
+                        </font>
+                        <button (click)="onSendBtn(sendbid,sendrad1,sendrad2)" pButton pRipple type="button" label="Save" class="p-button-rounded p-button-success"></button>
                     </div>
                 </td>
             </tr>

@@ -36,3 +36,20 @@
     position: relative;
     left: 35px;
 }
+.btn-holder
+{
+    width: max-content;
+    position: relative;
+    left: 90%;
+}
+.my-btn-style
+{
+    padding-left: 42%;
+    padding-right: 42%;
+    font-size: 15px;
+    border-radius: 0;
+}
+.my-img
+{
+    border-radius: 50%;
+}

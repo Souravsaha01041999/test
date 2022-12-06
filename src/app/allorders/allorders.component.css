@@ -9,12 +9,6 @@ th,td{
     cursor: pointer;
 }
 
-
-tr:nth-child(odd) {
-    background-color: rgb(211, 203, 218);
-}
-
-
 .data-holder
 {
     position: absolute;
@@ -50,4 +44,10 @@ input[type=radio]
     width: max-content;
     position: relative;
     left: 38%;
+}
+
+.radio-s
+{
+    position: relative;
+    bottom: 15px;
 }

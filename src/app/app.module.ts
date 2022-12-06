@@ -24,6 +24,8 @@ import * as CanvasJSAngularChart from '../assets/canvasjs.angular.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
+import {ButtonModule} from 'primeng/button';
+
 var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
 
 const myRouts:Routes=[
@@ -61,7 +63,8 @@ const myRouts:Routes=[
     BrowserModule,
     RouterModule.forRoot(myRouts),
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ButtonModule
   ],
   providers: [
     AdminCheck,LogOutEvent,LoginEvent],
