@@ -117,6 +117,11 @@ export class RoomsComponent implements OnInit {
     this.hotelHolder=hotelname;
     this.dateHolder=date;
   }
+  copyLink(hotel:HTMLParagraphElement)
+  {
+    let data=String(window.location.href).replace("rooms","roomdetails?roomnumber="+hotel.innerHTML);
+    navigator.share({title:'Room',text:'See Room Details',url:data});
+  }
 
   closePopup()
   {

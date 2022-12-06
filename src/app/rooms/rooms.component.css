@@ -109,6 +109,15 @@ p{
     height:200;
 }
 
+.share-holder
+{
+    position: relative;
+    width: max-content;
+    left: 90%;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
 @media screen and (max-width: 900px) {
     .list{
         margin-left: 30px;
