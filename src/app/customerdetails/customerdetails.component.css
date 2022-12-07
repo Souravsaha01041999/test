@@ -6,3 +6,9 @@ td{
 {
     color: red;
 }
+.print-button-holder
+{
+    position: relative;
+    width: max-content;
+    left: 50%;
+}

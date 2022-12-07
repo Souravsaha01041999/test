@@ -56,4 +56,15 @@ export class CustomerdetailsComponent implements OnInit {
     
   }
 
+  onPrint()
+  {
+    var divElementContents = document.getElementById("dipsprint").innerHTML;
+    var windows = window.open("", "", "height=800, width=800");
+    windows.document.write(divElementContents);
+    windows.document.close();
+    windows.print();
+    setInterval(function(){
+        windows.close();
+    },500);
+  }
 }

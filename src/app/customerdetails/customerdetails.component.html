@@ -1,74 +1,82 @@
-<table width="100%">
-    <tr>
-        <td class="highlight-my-text">Booking ID</td>
-        <td>{{ data.bookingid }}</td>
-    </tr>
-    <tr>
-        <td class="highlight-my-text">Price</td>
-        <td>{{ data.price }} /-</td>
-    </tr>
-    <tr>
-        <td class="highlight-my-text">Customar ID</td>
-        <td>{{ data.cid }}</td>
-    </tr>
-    <tr>
-        <td class="highlight-my-text">Room No.</td>
-        <td>{{ data.hotel_name }}</td>
-    </tr>
-    <tr>
-        <td class="highlight-my-text">Date</td>
-        <td>{{ data.date }}</td>
-    </tr>
-    <tr>
-        <td class="highlight-my-text">Status</td>
-        <td>{{ data.status }}</td>
-    </tr>
-    <tr>
-        <td class="highlight-my-text">Bed</td>
-        <td>{{ data.bed }}</td>
-    </tr>
-    <tr>
-        <td class="highlight-my-text">Flore</td>
-        <td>{{ data.location }}</td>
-    </tr>
-    <tr>
-        <td class="highlight-my-text">Others Details</td>
-        <td>{{ data.details }}</td>
-    </tr>
-    <tr>
-        <td class="highlight-my-text">User name</td>
-        <td>{{ data.username }}</td>
-    </tr>
-    <tr>
-        <td class="highlight-my-text">Name</td>
-        <td>{{ data.name }}</td>
-    </tr>
-    <tr>
-        <td class="highlight-my-text">Email</td>
-        <td>{{ data.email }}</td>
-    </tr>
-    <tr>
-        <td class="highlight-my-text">Address</td>
-        <td>{{ data.address }}</td>
-    </tr>
-    <tr>
-        <td class="highlight-my-text">Addhar No.</td>
-        <td>{{ data.addharnumber }}</td>
-    </tr>
-    <tr>
-        <td class="highlight-my-text">Mobile</td>
-        <td>{{ data.mobile }}</td>
-    </tr>
-    <tr>
-        <td class="highlight-my-text">User Image</td>
-        <td>
-            <img width="200" height="200" src="{{ data.userimage }}">
-        </td>
-    </tr>
-    <tr>
-        <td class="highlight-my-text">Addhar Card</td>
-        <td>
-            <img width="230" height="300" src="{{ data.addharimage }}">
-        </td>
-    </tr>
-</table>
+<div id="dipsprint">
+    <table width="100%">
+        <tr>
+            <td class="highlight-my-text">Booking ID</td>
+            <td>{{ data.bookingid }}</td>
+        </tr>
+        <tr>
+            <td class="highlight-my-text">Price</td>
+            <td>{{ data.price }} /-</td>
+        </tr>
+        <tr>
+            <td class="highlight-my-text">Customar ID</td>
+            <td>{{ data.cid }}</td>
+        </tr>
+        <tr>
+            <td class="highlight-my-text">Room No.</td>
+            <td>{{ data.hotel_name }}</td>
+        </tr>
+        <tr>
+            <td class="highlight-my-text">Date</td>
+            <td>{{ data.date }}</td>
+        </tr>
+        <tr>
+            <td class="highlight-my-text">Status</td>
+            <td>{{ data.status }}</td>
+        </tr>
+        <tr>
+            <td class="highlight-my-text">Bed</td>
+            <td>{{ data.bed }}</td>
+        </tr>
+        <tr>
+            <td class="highlight-my-text">Flore</td>
+            <td>{{ data.location }}</td>
+        </tr>
+        <tr>
+            <td class="highlight-my-text">Others Details</td>
+            <td>{{ data.details }}</td>
+        </tr>
+        <tr>
+            <td class="highlight-my-text">User name</td>
+            <td>{{ data.username }}</td>
+        </tr>
+        <tr>
+            <td class="highlight-my-text">Name</td>
+            <td>{{ data.name }}</td>
+        </tr>
+        <tr>
+            <td class="highlight-my-text">Email</td>
+            <td>{{ data.email }}</td>
+        </tr>
+        <tr>
+            <td class="highlight-my-text">Address</td>
+            <td>{{ data.address }}</td>
+        </tr>
+        <tr>
+            <td class="highlight-my-text">Addhar No.</td>
+            <td>{{ data.addharnumber }}</td>
+        </tr>
+        <tr>
+            <td class="highlight-my-text">Mobile</td>
+            <td>{{ data.mobile }}</td>
+        </tr>
+        <tr>
+            <td class="highlight-my-text">User Image</td>
+            <td>
+                <img width="200" height="200" src="{{ data.userimage }}">
+            </td>
+        </tr>
+        <tr>
+            <td class="highlight-my-text">Addhar Card</td>
+            <td>
+                <img width="230" height="300" src="{{ data.addharimage }}">
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="print-button-holder">
+    <p-button (click)="onPrint()" styleClass="p-button-outlined">
+        <img width="25" height="25" alt="logo" src="https://png.pngtree.com/png-vector/20200706/ourmid/pngtree-black-plastic-office-printer-printing-a-paper-page-png-image_2302044.jpg" />
+        <span class="ml-2 font-bold">Print</span>
+    </p-button>
+</div>
