@@ -39,3 +39,12 @@
     position: relative;
     left: 80%;
 }
+.no-record
+{
+    position: relative;
+    left: 10px;
+    width: max-content;
+    color: red;
+    font-weight: bold;
+    font-size: 20px;
+}

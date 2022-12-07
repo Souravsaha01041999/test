@@ -26,6 +26,7 @@ export class CartComponent implements OnInit {
   isLeft=false;
   isRight=false;
   page=0;
+  isRecord=false;
 
   numberOfData=10;
 
@@ -53,11 +54,7 @@ export class CartComponent implements OnInit {
         this.isLeft=false;
         // this.displayList=this.allDetails;
       },(error)=>{
-        this.showMessage=true;
-        this.disMsg="No Order";
-        setTimeout(()=>{
-          this.showMessage=false;
-        },3000);
+        this.isRecord=true;
       });
     }
   }

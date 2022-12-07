@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit {
   "https://pix10.agoda.net/hotelImages/124/1246280/1246280_16061017110043391702.jpg?ca=6&ce=1&s=1024x768"];
   i=0;
 
+  showGraph=false;
   chartOptions={};
   axisData:AxisPoints[]=[];
   ngOnInit(): void {
@@ -46,28 +47,37 @@ export class HomeComponent implements OnInit {
 
     let currentDate=String(new Date().getFullYear())+"-"+String(new Date().getMonth()+1)+"-"+String(new Date().getDate());
     //CHART
-    this.http.post("https://workonits.co.in/OFFICE/getCount.php",{date:currentDate})
-    .subscribe((response:{[key:string]:AxisPoints})=>
+    let role=String(localStorage.getItem("role"));
+    if(role=="admin")
     {
-      for(let k in response)
+      this.showGraph=true;
+      this.http.post("https://workonits.co.in/OFFICE/getCount.php",{date:currentDate})
+      .subscribe((response:{[key:string]:AxisPoints})=>
       {
-        this.axisData.push({label:response[k].label,y:Number(response[k].y)});
-      }
-      this.chartOptions = {
-        title: {
-          text: "Our Booking Between 7 days"
-        },
-        animationEnabled: true,
-        axisY: {
-        includeZero: true
-        },
-        data: [{
-        type: "column",
-        indexLabelFontColor: "#5A5757",
-        dataPoints: this.axisData
-        }]
-      };
-    });
+        for(let k in response)
+        {
+          this.axisData.push({label:response[k].label,y:Number(response[k].y)});
+        }
+        this.chartOptions = {
+          title: {
+            text: "Our Booking Between 7 days"
+          },
+          animationEnabled: true,
+          axisY: {
+          includeZero: true
+          },
+          data: [{
+          type: "column",
+          indexLabelFontColor: "#5A5757",
+          dataPoints: this.axisData
+          }]
+        };
+      });
+    }
+    else
+    {
+      this.showGraph=false;
+    }
   }
 
 }
