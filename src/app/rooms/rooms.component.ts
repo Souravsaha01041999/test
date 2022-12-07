@@ -70,12 +70,26 @@ export class RoomsComponent implements OnInit {
         this.showMessage=true;
         this.disMsg="Please Wait...!";
         let bid=String(new Date().getDate())+String(new Date().getMonth())+String(new Date().getFullYear())+String(new Date().getHours())+String(new Date().getMinutes())+String(new Date().getSeconds());
-        this.http.post("https://workonits.co.in/OFFICE/addOrder.php",{bid:bid,cid:id,hotel:this.hotelHolder.innerHTML,date:this.dateHolder.value})
+        this.http.post("https://workonits.co.in/OFFICE/addOrder.php",{bid:bid,cid:id,hotel:this.hotelHolder.innerHTML,date:this.dateHolder.value},{responseType:'text'})
         .subscribe((response)=>{
-          this.disMsg="OrderPlasced";
-          setTimeout(()=>{
-            this.showMessage=false;
-          },3000);
+
+          //CHECK HERE ROOM IS ALREADY BOOKED OR NOT THE DISPLAY MESSAGE
+          if(response=="1")
+          {
+            this.disMsg="OrderPlasced";
+            setTimeout(()=>{
+              this.showMessage=false;
+            },3000);
+          }
+          else
+          {
+            this.disMsg="On that date the room already booked";
+            setTimeout(()=>{
+              this.showMessage=false;
+            },3000);
+          }
+
+
         },(error)=>{
           this.disMsg="Network error";
           setTimeout(()=>{
