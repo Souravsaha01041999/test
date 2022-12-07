@@ -32,7 +32,7 @@ export class SignupComponent implements OnInit {
 
     if(this.username.length>0&&this.name.length>0&&this.email.length>0&&this.address.length>0&&this.anumber.length>0&&this.mobile.length>0&&aimg.files.length>0&&img.files.length>0)
     {
-      if(aimg.files[0].size<=2097152&&img.files[0].size<=2097152)
+      if(aimg.files[0].size<=2097152&&img.files[0].size<=2097152&&aimg.files[0].name.includes(".jpg")&&img.files[0].name.includes(".jpg"))
       {
         //UPLOADING CODE
         if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email))
@@ -85,7 +85,7 @@ export class SignupComponent implements OnInit {
       else
       {
         this.showMessage=true;
-        this.disMsg="Please select image that is less than 2MB";
+        this.disMsg="Please select image that is less than 2MB and select jpg file only";
         setTimeout(()=>
         {
           this.showMessage=false;
