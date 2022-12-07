@@ -66,8 +66,7 @@ const myRouts:Routes=[
     FormsModule,
     ButtonModule
   ],
-  providers: [
-    AdminCheck,LogOutEvent,LoginEvent],
+  providers: [AdminCheck,LogOutEvent,LoginEvent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
