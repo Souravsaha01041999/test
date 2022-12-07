@@ -32,52 +32,64 @@ export class SignupComponent implements OnInit {
 
     if(this.username.length>0&&this.name.length>0&&this.email.length>0&&this.address.length>0&&this.anumber.length>0&&this.mobile.length>0&&aimg.files.length>0&&img.files.length>0)
     {
-      
-      if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email))
+      if(aimg.files[0].size<=2097152&&img.files[0].size<=2097152)
       {
-        //UPLOAD DATA
-        formData.append("cid",cid);
-        formData.append("username",this.username);
-        formData.append("name",this.name);
-        formData.append("email",this.email);
-        formData.append("address",this.address);
-        formData.append("addharnumber",this.anumber);
-        formData.append("mobile",this.mobile);
+        //UPLOADING CODE
+        if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email))
+        {
+          //UPLOAD DATA
+          formData.append("cid",cid);
+          formData.append("username",this.username);
+          formData.append("name",this.name);
+          formData.append("email",this.email);
+          formData.append("address",this.address);
+          formData.append("addharnumber",this.anumber);
+          formData.append("mobile",this.mobile);
 
-        formData.append("addhar", aimg.files[0]);
-        formData.append("image", img.files[0]);
-        fetch('https://workonits.co.in/OFFICE/signup.php', {
-            method: "POST",
-            body: formData
-        })
-        .then((response) => response.text())
-        .then((response)=>{
-          switch(response)
-          {
-            case "Done":
-              this.disMsg="Done";
-              this.showMessage=true;
-              setTimeout(()=>{
-                this.showMessage=false;
-                this.router.navigate(["login"]);
-              },3000);
-            break;
-            case "ex":
-              this.disMsg="Email Already exist";
-              this.showMessage=true;
-              setTimeout(()=>{
-                this.showMessage=false;
-              },3000);
-            break;
-          }
-        });
+          formData.append("addhar", aimg.files[0]);
+          formData.append("image", img.files[0]);
+          fetch('https://workonits.co.in/OFFICE/signup.php', {
+              method: "POST",
+              body: formData
+          })
+          .then((response) => response.text())
+          .then((response)=>{
+            switch(response)
+            {
+              case "Done":
+                this.disMsg="Done";
+                this.showMessage=true;
+                setTimeout(()=>{
+                  this.showMessage=false;
+                  this.router.navigate(["login"]);
+                },3000);
+              break;
+              case "ex":
+                this.disMsg="Email Already exist";
+                this.showMessage=true;
+                setTimeout(()=>{
+                  this.showMessage=false;
+                },3000);
+              break;
+            }
+          });
+        }
+        else{
+          this.showMessage=true;
+          this.disMsg="Please Enter Email";
+          setTimeout(()=>{
+            this.showMessage=false;
+          },3000);
+        }
       }
-      else{
+      else
+      {
         this.showMessage=true;
-        this.disMsg="Please Enter Email";
-        setTimeout(()=>{
+        this.disMsg="Please select image that is less than 2MB";
+        setTimeout(()=>
+        {
           this.showMessage=false;
-        },3000);
+        },2000);
       }
     }
     else
