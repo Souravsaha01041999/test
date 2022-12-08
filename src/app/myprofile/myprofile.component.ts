@@ -15,6 +15,7 @@ interface UserDetails
     mobile:string;
     userimage:string;
     addharimage:string;
+    ctime:string;
 }
 
 @Component({
@@ -34,7 +35,8 @@ export class MyprofileComponent implements OnInit {
         mdate:"",
         mobile:"",
         userimage:"",
-        addharimage:""
+        addharimage:"",
+        ctime:""
     };
 
   constructor(private router:Router,private http:HttpClient,private login:LoginEvent) { }
@@ -65,7 +67,7 @@ export class MyprofileComponent implements OnInit {
   {
     if(name.value.length>0&&address.value.length&&number.value.length)
     {
-        let mdate=String(new Date().getFullYear())+"/"+String(new Date().getMonth()+1)+"/"+String(new Date().getDate());
+        let mdate=String(new Date().getFullYear())+"/"+String(new Date().getMonth()+1)+"/"+String(new Date().getDate())+" "+String(new Date().getHours())+":"+String(new Date().getMinutes());
         this.http.post("https://workonits.co.in/OFFICE/updateUser.php",{cid:this.cid,mobile:number.value,address:address.value,name:name.value,date:mdate})
         .subscribe((response)=>
         {

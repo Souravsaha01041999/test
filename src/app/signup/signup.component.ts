@@ -45,6 +45,7 @@ export class SignupComponent implements OnInit {
           formData.append("address",this.address);
           formData.append("addharnumber",this.anumber);
           formData.append("mobile",this.mobile);
+          formData.append("ctime",String(new Date().getFullYear())+"/"+String(new Date().getMonth()+1)+"/"+String(new Date().getDate())+" "+String(new Date().getHours())+":"+String(new Date().getMinutes()));
 
           formData.append("addhar", aimg.files[0]);
           formData.append("image", img.files[0]);
