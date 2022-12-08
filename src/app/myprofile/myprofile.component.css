@@ -18,3 +18,9 @@ input::-webkit-inner-spin-button {
 input[type=number] {
     -moz-appearance: textfield;
 }
+.btn-holder-my
+{
+    width: max-content;
+    padding-left: 20px;
+    padding-right: 20px;
+}

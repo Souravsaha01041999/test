@@ -44,6 +44,8 @@ export class MyprofileComponent implements OnInit {
     showAImage=false;
     showUImage=false;
 
+    isEditable=false;
+
   constructor(private router:Router,private http:HttpClient,private login:LoginEvent) { }
 
   cid:string="";
@@ -101,5 +103,16 @@ export class MyprofileComponent implements OnInit {
             this.showMessage=false;
         },3000);
     }
+  }
+
+
+  onEdit()
+  {
+    this.isEditable=true;
+  }
+
+  onCancel()
+  {
+    this.isEditable=false;
   }
 }

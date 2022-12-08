@@ -10,7 +10,7 @@
     </tr>
     <tr>
         <td align="center">Name</td>
-        <td><input #name class="form-control text-width-custom" type="text" value="{{ userDetails.name }}"></td>
+        <td><input [disabled]="!isEditable" #name class="form-control text-width-custom" type="text" value="{{ userDetails.name }}"></td>
     </tr>
     <tr>
         <td align="center">Email</td>
@@ -18,7 +18,7 @@
     </tr>
     <tr>
         <td align="center">Address</td>
-        <td><textarea #address class="form-control text-width-custom" cols="30" rows="5">{{ userDetails.address }}</textarea></td>
+        <td><textarea [disabled]="!isEditable" #address class="form-control text-width-custom" cols="30" rows="5">{{ userDetails.address }}</textarea></td>
     </tr>
     <tr>
         <td align="center">Addhar Card Number</td>
@@ -38,7 +38,7 @@
     </tr>
     <tr>
         <td align="center">Mobile</td>
-        <td><input #number class="form-control text-width-custom" type="number" value="{{ userDetails.mobile }}"></td>
+        <td><input [disabled]="!isEditable" #number class="form-control text-width-custom" type="number" value="{{ userDetails.mobile }}"></td>
     </tr>
     <tr>
         <td align="center">Image</td>
@@ -50,6 +50,12 @@
     </tr>
     <td></td>
     <td>
-        <button (click)="onUpdateData(name,address,number)" pButton type="button" label="UPDATE" class="p-button-sm"></button>
+        <button [disabled]="!isEditable" (click)="onUpdateData(name,address,number)" pButton type="button" label="UPDATE" class="p-button-sm"></button>
+        <span class="btn-holder-my">
+            <button (click)="onEdit()" pButton type="button" label="Edit" class="p-button-sm"></button>
+        </span>
+        <span class="btn-holder-my">
+            <button pButton (click)="onCancel()" type="button" label="Cancel" class="p-button-sm"></button>
+        </span>
     </td>
 </table>
