@@ -31,3 +31,17 @@ font{
     left: 20%;
     top: 50px;
 }
+.edit-holder
+{
+    position: relative;
+    width: max-content;
+    padding: 20px;
+    top: 100px;
+    left: 30%;
+}
+.btn-save-holder
+{
+    position: relative;
+    width: max-content;
+    left: 40%;
+}

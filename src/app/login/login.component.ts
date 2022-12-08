@@ -14,7 +14,6 @@ export class LoginComponent implements OnInit {
 
   constructor(private http:HttpClient,private adminEvent:AdminCheck,private logoutEvent:LogOutEvent,private router:Router,private login:LoginEvent) { }
   isLogin=false;
-  otp="";
   email="";
   disMsg="";
   isActive=true;
@@ -42,85 +41,54 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  sendOTP(emailVal:HTMLInputElement)
-  {
-    if(emailVal.value.length>0&&(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailVal.value)))
+  onLogin(pass:HTMLInputElement){
+    //AFTER GETTING SUCCESS RESPONSE ID (NOT EMAIL ID IT IS CID) AND ROLE WILL STORE IN LOCALSTORAGE
+    console.log(this.email);
+    if(pass.value.length>0&&this.email.length>0)
     {
-      this.otp=String(Math.ceil(Math.random()*9))+String(Math.ceil(Math.random()*9))+String(Math.ceil(Math.random()*9))+String(Math.ceil(Math.random()*9));
-      this.email=emailVal.value;
-
-      this.disMsg="OTP sending";
       this.showMessage=true;
+      this.disMsg="Please Wait...";
+      this.http.post("https://workonits.co.in/OFFICE/login.php",{email:this.email,pass:pass.value})
+      .subscribe((respone)=>{
+        this.showMessage=false;
 
-      console.log(this.otp);
-
-      this.http.post("https://workonits.co.in/OFFICE/sendOTP.php",{email:emailVal.value,otp:this.otp},
-      {responseType:'text'})
-      .subscribe((response)=>{
-        if(response=="1")
+        switch(respone["user"])
         {
-          this.disMsg="Please check OTP";
-          this.isActive=false;
-          console.log(this.otp);
-        }
-        else
-        {
-          this.disMsg="User not found";
-          this.isActive=true;
-        }
+          case "not found":
+              this.disMsg="User Not Found";
+              this.showMessage=true;
+              setTimeout(()=>{
+                this.showMessage=false;
+              },3000);
+            break;
+          case "password":
+              this.disMsg="Please enter right password";
+              this.showMessage=true;
+              setTimeout(()=>{
+                this.showMessage=false;
+              },3000);
+            break;
+          default:
+              localStorage.setItem("id",respone["user"]);
+              localStorage.setItem("role",respone["role"]);
+              localStorage.setItem("username",respone["username"]);
 
-        setTimeout(()=>{
-          this.showMessage=false;
-        },3000);
+              if(respone["role"]=="admin")
+              {
+                this.adminEvent.subjectEvent.next(true);
+              }
+              else{
+                this.adminEvent.subjectEvent.next(false);
+              }
+              this.isLogin=!this.isLogin;
+              this.login.subjectEvent.next();
+              this.router.navigate([""]);
+        }
       });
     }
     else
     {
-      this.showMessage=true;
-      this.disMsg="Please enter email";
-      setTimeout(()=>{
-        this.showMessage=false;
-      },3000);
-    }
-  }
-
-  onLogin(otpval:HTMLInputElement){
-    //AFTER GETTING SUCCESS RESPONSE ID (NOT EMAIL ID IT IS CID) AND ROLE WILL STORE IN LOCALSTORAGE
-    if(this.otp==otpval.value&&this.email.length>0)
-    {
-      this.showMessage=true;
-      this.disMsg="Please Wait...";
-      this.http.post("https://workonits.co.in/OFFICE/login.php",{email:this.email})
-      .subscribe((respone)=>{
-        this.showMessage=false;
-        if(respone["user"]!="not found")
-        {
-          localStorage.setItem("id",respone["user"]);
-          localStorage.setItem("role",respone["role"]);
-          localStorage.setItem("username",respone["username"]);
-
-          if(respone["role"]=="admin")
-          {
-            this.adminEvent.subjectEvent.next(true);
-          }
-          else{
-            this.adminEvent.subjectEvent.next(false);
-          }
-          this.isLogin=!this.isLogin;
-          this.login.subjectEvent.next();
-          this.router.navigate([""]);
-        }
-        else{
-          this.disMsg="User Not Found";
-          this.showMessage=true;
-          setTimeout(()=>{
-            this.showMessage=false;
-          },3000);
-        }
-      });
-    }
-    else{
-      this.disMsg="Login Details incorrect";
+      this.disMsg="Please enter all details";
       this.showMessage=true;
       setTimeout(()=>{
         this.showMessage=false;
@@ -130,6 +98,7 @@ export class LoginComponent implements OnInit {
 
   onInputEmail(email:HTMLInputElement)
   {
+    this.email=email.value;
     if(email.value.length>0&&(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value)))
     {
       //SEND HTTP REQUEST AFTER GETTING RESPONSE CHECK THE EMAIL EXIST OT NOT IF EXIST THEN SHOW TICK AND SEND OTP ELSE SHOW CROSS

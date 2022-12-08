@@ -1,3 +1,4 @@
+<div *ngIf="showMessage" display-message [message]="disMsg"></div>
 <table>
     <tr>
         <td>
@@ -14,6 +15,37 @@
         </td>
     </tr>
 </table>
+
+<!-- EDIT ROOM -->
+<div *ngIf="showEdit" class="edit-holder">
+    <table cellpadding="10">
+        <tr>
+            <td>Room Number:</td>
+            <td>{{ roomnumber }}</td>
+        </tr>
+        <tr>
+            <td>Bed:</td>
+            <td><input class="form-control" type="text" [(ngModel)]="bed"></td>
+        </tr>
+        <tr>
+            <td>Flowre:</td>
+            <td><font>{{ flr }}</font></td>
+        </tr>
+        <tr>
+            <td>Others details:</td>
+            <td><input class="form-control" type="text" [(ngModel)]="det"></td>
+        </tr>
+        <tr>
+            <td>Price:</td>
+            <td><input class="form-control" type="text" [(ngModel)]="price"></td>
+        </tr>
+    </table>
+    <br><br>
+    <div class="btn-save-holder">
+        <p-button (click)="onSave()" label="SAVE" icon="pi pi-check" iconPos="right"></p-button>
+    </div>
+</div>
+<!-- END EDIT ROOM -->
 
 <!-- CLICK FULL IMAGE -->
 <div (click)="onClickCloseImage()" *ngIf="isImageShow" class="img-holder">

@@ -20,6 +20,11 @@ export class RoomdetailsComponent implements OnInit {
 
   isVisable=false;
 
+  showMessage=false;
+  disMsg="";
+
+  showEdit=false;
+
 
   ngOnInit(): void {
     
@@ -33,6 +38,11 @@ export class RoomdetailsComponent implements OnInit {
     else
     {
       let room=this.route.snapshot.queryParams['roomnumber'];
+
+      if(String(localStorage.getItem("role"))=="admin")
+      {
+        this.showEdit=true;
+      }
 
       this.http.get("https://workonits.co.in/OFFICE/getRoomDetails.php?room="+room)
       .subscribe((response)=>{
@@ -57,6 +67,20 @@ export class RoomdetailsComponent implements OnInit {
   onClickCloseImage()
   {
     this.isImageShow=false;
+  }
+
+  onSave()
+  {
+    this.http.post("https://workonits.co.in/OFFICE/updateRoom.php",{room:this.roomnumber,price:this.price,details:this.det,bed:this.bed})
+    .subscribe((response)=>
+    {
+      this.showMessage=true;
+      this.disMsg="Updated";
+      setTimeout(()=>
+      {
+        this.showMessage=false;
+      },2000);
+    });
   }
 
 }

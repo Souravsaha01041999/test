@@ -11,14 +11,11 @@
         <br *ngIf="tick||cross">
         <font class="emailID-style">Email ID</font>
         <input class="form-control text-my-style" (input)="onInputEmail(email)" [disabled]="!isActive" type="text" #email placeholder="Email Id">
-        
-        <br *ngIf="!showSendOTP">
-        <font *ngIf="showSendOTP" (click)="sendOTP(email)" class="send-otp">SEND OTP</font>
-        <br *ngIf="showSendOTP">
-        <font class="emailID-style">OTP</font>
-        <input class="form-control text-my-style" #otp type="number" placeholder="OTP">
         <br>
-        <button (click)="onLogin(otp)" class="btn btn-primary pos">Login</button>
+        <font class="emailID-style">Password</font>
+        <input class="form-control text-my-style" #pass type="password" placeholder="Password">
+        <br>
+        <button (click)="onLogin(pass)" class="btn btn-primary pos">Login</button>
         <br>
         <a class="signup" routerLink="/signup">You don't have account click here?</a>
     </div>
