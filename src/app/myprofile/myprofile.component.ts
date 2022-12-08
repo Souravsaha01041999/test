@@ -39,6 +39,9 @@ export class MyprofileComponent implements OnInit {
         ctime:""
     };
 
+    showAImage=false;
+    showUImage=false;
+
   constructor(private router:Router,private http:HttpClient,private login:LoginEvent) { }
 
   cid:string="";
@@ -57,8 +60,16 @@ export class MyprofileComponent implements OnInit {
         this.http.post("https://workonits.co.in/OFFICE/getProfile.php",{cid:this.cid})
         .subscribe((response:UserDetails)=>{
             this.userDetails=response;
-            this.userDetails.addharimage="https://workonits.co.in/OFFICE/addharimage/"+this.userDetails.addharimage;
-            this.userDetails.userimage="https://workonits.co.in/OFFICE/image/"+this.userDetails.userimage;
+            if(this.userDetails.addharimage.includes(".jpg"))
+            {
+              this.userDetails.addharimage="https://workonits.co.in/OFFICE/addharimage/"+this.userDetails.addharimage;
+              this.showAImage=true;
+            }
+            if(this.userDetails.userimage.includes(".jpg"))
+            {
+              this.userDetails.userimage="https://workonits.co.in/OFFICE/image/"+this.userDetails.userimage;
+              this.showUImage=true;
+            }
         });
     }
   }

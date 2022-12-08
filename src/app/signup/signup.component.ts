@@ -19,10 +19,11 @@ export class SignupComponent implements OnInit {
   anumber="";
   mobile="";
 
+  isEmail=false;
   constructor(private router:Router) { }
 
   ngOnInit(): void {
-    
+
   }
 
   onSignup(aimg:HTMLInputElement,img:HTMLInputElement)
@@ -138,6 +139,18 @@ export class SignupComponent implements OnInit {
   {
     disp.src=URL.createObjectURL(img.files[0]);
     console.log(img.files[0].name);
+  }
+
+  checkEmail(event:Event)
+  {
+    if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test((<HTMLInputElement>event.target).value))
+    {
+      this.isEmail=false;
+    }
+    else
+    {
+      this.isEmail=true;
+    }
   }
 
 }
