@@ -34,6 +34,7 @@ export class CartComponent implements OnInit {
   constructor(private router:Router,private http:HttpClient) { }
 
   ngOnInit(): void {
+    //Here cheking logedin or not if login then open the component or else go to login component
     let id=String(localStorage.getItem("id"));
     if(id=="null")
     {
@@ -59,6 +60,7 @@ export class CartComponent implements OnInit {
     }
   }
 
+  //If user clicked on previous button
   previousItem()
   {
     this.page--;
@@ -81,6 +83,8 @@ export class CartComponent implements OnInit {
     }
 
   }
+
+  //If user clicked on next button
   nextItem()
   {
     this.page++;
@@ -100,6 +104,8 @@ export class CartComponent implements OnInit {
     
   }
 
+
+  //If user clicked on only 5 or 10 record to set the value this function is used
   setVal(event:Event)
   {
     

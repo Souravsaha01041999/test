@@ -15,6 +15,7 @@ export class NavigationstyleComponent implements OnInit {
   isShowNavigation=false;
   logMessage="";
   ngOnInit(): void {
+    //Here we are checkin user login details and if logedin then it will display in navigation bar
     let role=String(localStorage.getItem("role"));
     let id=String(localStorage.getItem("id"));
     if(id=="null")

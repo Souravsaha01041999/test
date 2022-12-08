@@ -26,6 +26,7 @@ export class AllordersComponent implements OnInit {
   showMessage=false;
 
   ngOnInit(): void {
+    //We are checkin here what is the role IF NOT LOGED IN OR NOT ADMIN THEN WE ARE REDIRECTING TO HOME
     let myRole=String(localStorage.getItem("role"));
     if(myRole=="null"||myRole!="admin")
     {
@@ -38,6 +39,7 @@ export class AllordersComponent implements OnInit {
     }
   }
 
+  //Here loaded the data from the server into that application
   loadData()
   {
     this.allOrderList=[];
@@ -59,6 +61,7 @@ export class AllordersComponent implements OnInit {
     });
   }
 
+  //Here seted the status
   onSendBtn(sendbid:HTMLInputElement,sendrad1:HTMLInputElement,sendrad2:HTMLInputElement)
   {
     let settingStatus="";
@@ -102,11 +105,13 @@ export class AllordersComponent implements OnInit {
 
   }
 
+  //If user clicked on id
   redirectCd(bid:HTMLTableColElement)
   {
     this.router.navigate(["cdetails/"+bid.innerHTML]);
   }
 
+  //If user clicked on filter
   onFilterChange(event:Event)
   {
     let fil=(<HTMLInputElement>event.target).value;

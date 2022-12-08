@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
   showSendOTP=false;
 
   ngOnInit(): void {
+    //Checking already loged in or not
     let id=String(localStorage.getItem("id"));
     if(id=="null")
     {
@@ -41,6 +42,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  //Here clled to the login api
   onLogin(pass:HTMLInputElement){
     //AFTER GETTING SUCCESS RESPONSE ID (NOT EMAIL ID IT IS CID) AND ROLE WILL STORE IN LOCALSTORAGE
     console.log(this.email);
@@ -54,21 +56,21 @@ export class LoginComponent implements OnInit {
 
         switch(respone["user"])
         {
-          case "not found":
+          case "not found":   //User not in server database
               this.disMsg="User Not Found";
               this.showMessage=true;
               setTimeout(()=>{
                 this.showMessage=false;
               },3000);
             break;
-          case "password":
+          case "password":    //Password error
               this.disMsg="Please enter right password";
               this.showMessage=true;
               setTimeout(()=>{
                 this.showMessage=false;
               },3000);
             break;
-          default:
+          default:    //Everything is fine then login successfully
               localStorage.setItem("id",respone["user"]);
               localStorage.setItem("role",respone["role"]);
               localStorage.setItem("username",respone["username"]);
@@ -96,6 +98,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  //When email is inputing that time check the enterd email is exist or not in server database
   onInputEmail(email:HTMLInputElement)
   {
     this.email=email.value;

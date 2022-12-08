@@ -54,6 +54,7 @@ export class RoomsComponent implements OnInit {
     });
   }
 
+  //When user will book ny room this method will call
   onAddButton(){
     this.isPopupShow=false;
     let id=String(localStorage.getItem("id"));
@@ -107,11 +108,13 @@ export class RoomsComponent implements OnInit {
     }
   }
 
+  //When user will open any room details that time this method will call
   navigateDetails(room:HTMLParagraphElement)
   {
     this.router.navigate(["roomdetails"],{queryParams:{roomnumber:room.innerHTML}});
   }
 
+  //When user enter any date its checks the date is old date or not
   onCheckDate(event:Event)
   {
     if(new Date((<HTMLInputElement>event.target).value).getTime()<(new Date().getTime()-72000000))
@@ -125,18 +128,21 @@ export class RoomsComponent implements OnInit {
     }
   }
 
+  //Set the popup
   setPopup(hotelname:HTMLParagraphElement,date:HTMLInputElement)
   {
     this.isPopupShow=true;
     this.hotelHolder=hotelname;
     this.dateHolder=date;
   }
+  //When user will share the room details that time this metod will call
   copyLink(hotel:HTMLParagraphElement)
   {
     let data=String(window.location.href).replace("rooms","roomdetails?roomnumber="+hotel.innerHTML);
     navigator.share({title:'Room',text:'See Room Details',url:data});
   }
 
+  //When we will call the method the popup will close
   closePopup()
   {
     this.isPopupShow=false;

@@ -53,6 +53,8 @@ export class MyprofileComponent implements OnInit {
   disMsg="";
 
   ngOnInit(): void {
+
+    //Getting login details if not login then go to login page or else component will work
     this.cid=String(localStorage.getItem("id"));
     if(this.cid=="null")
     {
@@ -78,6 +80,7 @@ export class MyprofileComponent implements OnInit {
     }
   }
 
+  //When user will update data thet time this method will work
   onUpdateData(name:HTMLInputElement,address:HTMLTextAreaElement,number:HTMLInputElement)
   {
     if(name.value.length>0&&address.value.length&&number.value.length)
@@ -106,11 +109,13 @@ export class MyprofileComponent implements OnInit {
   }
 
 
+  //If we call this method then profile edit mode will open
   onEdit()
   {
     this.isEditable=true;
   }
 
+  //If we call this method then profile edit mode will close
   onCancel()
   {
     this.isEditable=false;

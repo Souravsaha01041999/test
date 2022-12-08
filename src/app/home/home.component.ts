@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit {
     }
 
     let currentDate=String(new Date().getFullYear())+"-"+String(new Date().getMonth()+1)+"-"+String(new Date().getDate());
-    //CHART
+    //To getting the chart data if the role is admin
     let role=String(localStorage.getItem("role"));
     if(role=="admin")
     {

@@ -35,6 +35,7 @@ export class CustomerdetailsComponent implements OnInit {
   data: BookingDetails;
   ngOnInit(): void {
 
+    //Here checking what is the role if role is not admin or not logedin then the page will navigate to login page or else it will open
     let myRole = String(localStorage.getItem("role"));
     if (myRole == "null" || myRole != "admin") {
       //LOGIN REQUIRED HERE

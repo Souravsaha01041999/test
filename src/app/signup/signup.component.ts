@@ -28,6 +28,8 @@ export class SignupComponent implements OnInit {
 
   }
 
+  //When user clicked on signup button this method will check all the details and then signup api will call
+
   onSignup(aimg:HTMLInputElement,img:HTMLInputElement)
   {
     let formData = new FormData();
@@ -121,6 +123,7 @@ export class SignupComponent implements OnInit {
     
   }
 
+  //It will check the enterd addhar number is number or char
   onAddharInput()
   {
     if(!this.anumber.match(/^[0-9]+$/))
@@ -136,6 +139,7 @@ export class SignupComponent implements OnInit {
     }
   }
 
+  //It will check the enterd mobile number is number or char
   onMobileInput()
   {
     if(!this.mobile.match(/^[0-9]+$/))
@@ -151,12 +155,13 @@ export class SignupComponent implements OnInit {
     }
   }
 
+  //It fetch the image from the file and set priview into the component
   getImage(img:HTMLInputElement,disp:HTMLImageElement)
   {
     disp.src=URL.createObjectURL(img.files[0]);
-    console.log(img.files[0].name);
   }
 
+  //It checks the enterd data is mail or not
   checkEmail(event:Event)
   {
     if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test((<HTMLInputElement>event.target).value))

@@ -60,15 +60,19 @@ export class RoomdetailsComponent implements OnInit {
     }
   }
 
+  //If image zoom in
   onClickImage()
   {
     this.isImageShow=true;
   }
+
+  //If image zoom out
   onClickCloseImage()
   {
     this.isImageShow=false;
   }
 
+  //If admin will call save button then only all details will save in to the server
   onSave()
   {
     this.http.post("https://workonits.co.in/OFFICE/updateRoom.php",{room:this.roomnumber,price:this.price,details:this.det,bed:this.bed})
