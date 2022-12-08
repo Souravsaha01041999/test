@@ -25,6 +25,7 @@ import { MyprofileComponent } from './myprofile/myprofile.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 import {ButtonModule} from 'primeng/button';
+import {TableModule} from 'primeng/table';
 
 var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
 
@@ -64,7 +65,8 @@ const myRouts:Routes=[
     RouterModule.forRoot(myRouts),
     HttpClientModule,
     FormsModule,
-    ButtonModule
+    ButtonModule,
+    TableModule
   ],
   providers: [AdminCheck,LogOutEvent,LoginEvent],
   bootstrap: [AppComponent]

@@ -8,32 +8,32 @@
     <option value="20">Show 20</option>
   </select>
 </div>
-<table class="table table-striped">
-    <thead>
-      <tr>
-        <th scope="col">Booking ID</th>
-        <th scope="col">Customet ID</th>
-        <th scope="col">Room Number</th>
-        <th scope="col">Date</th>
-        <th scope="col">Status</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let detail of displayList">
-        <td scope="row">{{ detail.bookingid }}</td>
-        <td>{{ detail.cid }}</td>
-        <td>{{ detail.hotel_name }}</td>
-        <td>{{ detail.date }}</td>
-        <td>
-          <div [ngSwitch]="detail.status">
-            <p class="pending" *ngSwitchCase="'pending'">Pending</p>
-            <p class="rej" *ngSwitchCase="'rejected'">Rejected</p>
-            <p class="conf" *ngSwitchCase="'confirmed'">Confirmed</p>
-        </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <p-table [value]="displayList">
+    <ng-template pTemplate="header">
+        <tr>
+          <th>Booking ID</th>
+          <th>Customet ID</th>
+          <th>Room Number</th>
+          <th>Date</th>
+          <th>Status</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-detail>
+        <tr>
+          <td>{{ detail.bookingid }}</td>
+          <td>{{ detail.cid }}</td>
+          <td>{{ detail.hotel_name }}</td>
+          <td>{{ detail.date }}</td>
+          <td>
+            <div [ngSwitch]="detail.status">
+              <p class="pending" *ngSwitchCase="'pending'">Pending</p>
+              <p class="rej" *ngSwitchCase="'rejected'">Rejected</p>
+              <p class="conf" *ngSwitchCase="'confirmed'">Confirmed</p>
+          </div>
+          </td>
+        </tr>
+    </ng-template>
+</p-table>
 
   <div *ngIf="isRecord" class="no-record">No Record Found</div>
 
