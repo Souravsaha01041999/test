@@ -16,6 +16,7 @@ interface UserDetails
     userimage:string;
     addharimage:string;
     ctime:string;
+    dob:string;
 }
 
 @Component({
@@ -36,7 +37,8 @@ export class MyprofileComponent implements OnInit {
         mobile:"",
         userimage:"",
         addharimage:"",
-        ctime:""
+        ctime:"",
+        dob:""
     };
 
     showAImage=false;

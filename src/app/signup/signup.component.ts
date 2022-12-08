@@ -18,6 +18,7 @@ export class SignupComponent implements OnInit {
   address="";
   anumber="";
   mobile="";
+  dob="";
 
   isEmail=false;
   constructor(private router:Router) { }
@@ -31,7 +32,7 @@ export class SignupComponent implements OnInit {
     let formData = new FormData();
     let cid = String(new Date().getDate())+String(new Date().getMonth())+String(new Date().getFullYear())+String(new Date().getHours())+String(new Date().getMinutes());
 
-    if(this.username.length>0&&this.name.length>0&&this.email.length>0&&this.address.length>0&&this.anumber.length>0&&this.mobile.length>0&&aimg.files.length>0&&img.files.length>0)
+    if(this.username.length>0&&this.name.length>0&&this.email.length>0&&this.address.length>0&&this.anumber.length>0&&this.mobile.length>0&&aimg.files.length>0&&img.files.length>0&&this.dob.length>0)
     {
       if(aimg.files[0].size<=2097152&&img.files[0].size<=2097152&&aimg.files[0].name.includes(".jpg")&&img.files[0].name.includes(".jpg"))
       {
@@ -50,6 +51,7 @@ export class SignupComponent implements OnInit {
 
           formData.append("addhar", aimg.files[0]);
           formData.append("image", img.files[0]);
+          formData.append("dob",this.dob);
           fetch('https://workonits.co.in/OFFICE/signup.php', {
               method: "POST",
               body: formData

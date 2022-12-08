@@ -69,7 +69,7 @@ export class RoomsComponent implements OnInit {
         //SEND ORDER REQUEST
         this.showMessage=true;
         this.disMsg="Please Wait...!";
-        let bid=String(new Date().getDate())+String(new Date().getMonth())+String(new Date().getFullYear())+String(new Date().getHours())+String(new Date().getMinutes())+String(new Date().getSeconds());
+        let bid=id+String(new Date().getDate())+String(new Date().getMonth())+String(new Date().getFullYear())+String(new Date().getHours())+String(new Date().getMinutes())+String(new Date().getSeconds());
         this.http.post("https://workonits.co.in/OFFICE/addOrder.php",{bid:bid,cid:id,hotel:this.hotelHolder.innerHTML,date:this.dateHolder.value},{responseType:'text'})
         .subscribe((response)=>{
 
