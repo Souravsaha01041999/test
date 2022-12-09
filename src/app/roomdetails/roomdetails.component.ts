@@ -27,7 +27,11 @@ export class RoomdetailsComponent implements OnInit {
 
 
   ngOnInit(): void {
-    
+    this.systemLoad();
+  }
+
+  systemLoad()
+  {
     let room=this.route.snapshot.queryParams['roomnumber'];
 
     if(String(localStorage.getItem("role"))=="admin")

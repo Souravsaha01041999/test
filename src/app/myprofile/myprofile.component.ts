@@ -55,6 +55,11 @@ export class MyprofileComponent implements OnInit {
   ngOnInit(): void {
 
     //Getting login details if not login then go to login page or else component will work
+    this.loadSystem();
+  }
+
+  loadSystem()
+  {
     this.cid=String(localStorage.getItem("id"));
 
     this.http.post("https://workonits.co.in/OFFICE/getProfile.php",{cid:this.cid})

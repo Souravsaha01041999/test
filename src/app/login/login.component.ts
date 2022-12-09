@@ -25,6 +25,11 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     //Checking already loged in or not
+    this.loadSystem();
+  }
+
+  loadSystem()
+  {
     let id=String(localStorage.getItem("id"));
     if(id=="null")
     {

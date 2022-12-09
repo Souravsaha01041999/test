@@ -33,7 +33,11 @@ export class RoomsComponent implements OnInit {
 
   allRooms:HotelDetails[]=[];
   ngOnInit(): void {
+    this.systemLoad();
+  }
 
+  systemLoad()
+  {
     let id=String(localStorage.getItem("id"));
     if(id=="null")
     {

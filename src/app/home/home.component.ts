@@ -28,6 +28,11 @@ export class HomeComponent implements OnInit {
   chartOptions={};
   axisData:AxisPoints[]=[];
   ngOnInit(): void {
+    this.loadSystem();
+  }
+
+  loadSystem()
+  {
     setInterval(()=>{
       this.link=this.allImages[this.i];
       this.i++;

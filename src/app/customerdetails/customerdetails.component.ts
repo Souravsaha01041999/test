@@ -34,6 +34,11 @@ export class CustomerdetailsComponent implements OnInit {
 
   data: BookingDetails;
   ngOnInit(): void {
+    this.loadSystem();
+  }
+
+  loadSystem()
+  {
     let bid = this.route.snapshot.params["bid"];
     this.http.post("https://workonits.co.in/OFFICE/getCustomerDetails.php", { bid: bid })
       .subscribe((response: BookingDetails) => {

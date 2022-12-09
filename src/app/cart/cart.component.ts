@@ -34,6 +34,12 @@ export class CartComponent implements OnInit {
   constructor(private router:Router,private http:HttpClient) { }
 
   ngOnInit(): void {
+    this.loadSystem();
+  }
+
+  //Initiate the starting all data
+  loadSystem()
+  {
     let id=String(localStorage.getItem("id"));
     this.http.post("https://workonits.co.in/OFFICE/getMyOrders.php",{cid:id})
     .subscribe((response:{[key:string]:BookingDetails})=>{
