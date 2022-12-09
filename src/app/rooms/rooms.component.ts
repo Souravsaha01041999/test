@@ -58,53 +58,46 @@ export class RoomsComponent implements OnInit {
   onAddButton(){
     this.isPopupShow=false;
     let id=String(localStorage.getItem("id"));
-    if(id=="null")
+    //ADD INTO CART
+    if(String(this.dateHolder.value).length>0)
     {
-      //LOGIN SHOW
-      this.router.navigate(["login"]);
-    }
-    else{
-      //ADD INTO CART
-      if(String(this.dateHolder.value).length>0)
-      {
-        //SEND ORDER REQUEST
-        this.showMessage=true;
-        this.disMsg="Please Wait...!";
-        let bid=id+String(new Date().getDate())+String(new Date().getMonth())+String(new Date().getFullYear())+String(new Date().getHours())+String(new Date().getMinutes())+String(new Date().getSeconds());
-        this.http.post("https://workonits.co.in/OFFICE/addOrder.php",{bid:bid,cid:id,hotel:this.hotelHolder.innerHTML,date:this.dateHolder.value},{responseType:'text'})
-        .subscribe((response)=>{
+      //SEND ORDER REQUEST
+      this.showMessage=true;
+      this.disMsg="Please Wait...!";
+      let bid=id+String(new Date().getDate())+String(new Date().getMonth())+String(new Date().getFullYear())+String(new Date().getHours())+String(new Date().getMinutes())+String(new Date().getSeconds());
+      this.http.post("https://workonits.co.in/OFFICE/addOrder.php",{bid:bid,cid:id,hotel:this.hotelHolder.innerHTML,date:this.dateHolder.value},{responseType:'text'})
+      .subscribe((response)=>{
 
-          //CHECK HERE ROOM IS ALREADY BOOKED OR NOT THE DISPLAY MESSAGE
-          if(response=="1")
-          {
-            this.disMsg="OrderPlasced";
-            setTimeout(()=>{
-              this.showMessage=false;
-            },3000);
-          }
-          else
-          {
-            this.disMsg="On that date the room already booked";
-            setTimeout(()=>{
-              this.showMessage=false;
-            },3000);
-          }
-
-
-        },(error)=>{
-          this.disMsg="Network error";
+        //CHECK HERE ROOM IS ALREADY BOOKED OR NOT THE DISPLAY MESSAGE
+        if(response=="1")
+        {
+          this.disMsg="OrderPlasced";
           setTimeout(()=>{
             this.showMessage=false;
           },3000);
-        });
-      }
-      else{
-        this.showMessage=true;
-        this.disMsg="Please Select date";
+        }
+        else
+        {
+          this.disMsg="On that date the room already booked";
+          setTimeout(()=>{
+            this.showMessage=false;
+          },3000);
+        }
+
+
+      },(error)=>{
+        this.disMsg="Network error";
         setTimeout(()=>{
           this.showMessage=false;
         },3000);
-      }
+      });
+    }
+    else{
+      this.showMessage=true;
+      this.disMsg="Please Select date";
+      setTimeout(()=>{
+        this.showMessage=false;
+      },3000);
     }
   }
 

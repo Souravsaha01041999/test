@@ -34,30 +34,21 @@ export class CartComponent implements OnInit {
   constructor(private router:Router,private http:HttpClient) { }
 
   ngOnInit(): void {
-    //Here cheking logedin or not if login then open the component or else go to login component
     let id=String(localStorage.getItem("id"));
-    if(id=="null")
-    {
-      //LOGIN REQUIRED HERE
-      this.router.navigate(["login"]);
-    }
-    else{
-      //OPEN CART HERE
-      this.http.post("https://workonits.co.in/OFFICE/getMyOrders.php",{cid:id})
-      .subscribe((response:{[key:string]:BookingDetails})=>{
+    this.http.post("https://workonits.co.in/OFFICE/getMyOrders.php",{cid:id})
+    .subscribe((response:{[key:string]:BookingDetails})=>{
 
-        for(let k in response)
-        {
-          this.allDetails.push(response[k]);
-        }
-        this.nextItem();
-        this.isRight=true;
-        this.isLeft=false;
-        // this.displayList=this.allDetails;
-      },(error)=>{
-        this.isRecord=true;
-      });
-    }
+      for(let k in response)
+      {
+        this.allDetails.push(response[k]);
+      }
+      this.nextItem();
+      this.isRight=true;
+      this.isLeft=false;
+      // this.displayList=this.allDetails;
+    },(error)=>{
+      this.isRecord=true;
+    });
   }
 
   //If user clicked on previous button

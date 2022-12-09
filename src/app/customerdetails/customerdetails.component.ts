@@ -34,23 +34,13 @@ export class CustomerdetailsComponent implements OnInit {
 
   data: BookingDetails;
   ngOnInit(): void {
-
-    //Here checking what is the role if role is not admin or not logedin then the page will navigate to login page or else it will open
-    let myRole = String(localStorage.getItem("role"));
-    if (myRole == "null" || myRole != "admin") {
-      //LOGIN REQUIRED HERE
-      this.router.navigate([""]);
-    }
-    else {
-      let bid = this.route.snapshot.params["bid"];
-      this.http.post("https://workonits.co.in/OFFICE/getCustomerDetails.php", { bid: bid })
-        .subscribe((response: BookingDetails) => {
-          this.data = response;
-          this.data.userimage = "https://workonits.co.in/OFFICE/image/" + this.data.userimage;
-          this.data.addharimage = "https://workonits.co.in/OFFICE/addharimage/" + this.data.addharimage
-        });
-    }
-
+    let bid = this.route.snapshot.params["bid"];
+    this.http.post("https://workonits.co.in/OFFICE/getCustomerDetails.php", { bid: bid })
+      .subscribe((response: BookingDetails) => {
+        this.data = response;
+        this.data.userimage = "https://workonits.co.in/OFFICE/image/" + this.data.userimage;
+        this.data.addharimage = "https://workonits.co.in/OFFICE/addharimage/" + this.data.addharimage
+      });
   }
 
   //print all details

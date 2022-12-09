@@ -38,13 +38,6 @@ export class HomeComponent implements OnInit {
       }
     },4000);
 
-    let id=String(localStorage.getItem("id"));
-    if(id=="null")
-    {
-      //LOGIN SHOW
-      this.router.navigate(["login"]);
-    }
-
     let currentDate=String(new Date().getFullYear())+"-"+String(new Date().getMonth()+1)+"-"+String(new Date().getDate());
     //To getting the chart data if the role is admin
     let role=String(localStorage.getItem("role"));

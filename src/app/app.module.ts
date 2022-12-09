@@ -26,19 +26,26 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 import {ButtonModule} from 'primeng/button';
 import {TableModule} from 'primeng/table';
+import { HomeAuth } from './AuthenticationService/HomeAuth';
+import { AllOrderAuth } from './AuthenticationService/AllOrderAuth';
+import { CartAuth } from './AuthenticationService/CartAuth';
+import { CustomerDetailsAuth } from './AuthenticationService/CustomerDetailsAuth';
+import { MyProfileAuth } from './AuthenticationService/MyProfileAuth';
+import { RoomDetailsAuth } from './AuthenticationService/RoomDetailsAuth';
+import { RoomAuth } from './AuthenticationService/RoomAuth';
 
 var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
 
 const myRouts:Routes=[
-  {path:'',component:HomeComponent},
+  {path:'',component:HomeComponent,canActivate:[HomeAuth]},
   {path:'login',component:LoginComponent},
-  {path:'rooms',component:RoomsComponent},
-  {path:'cart',component:CartComponent},
+  {path:'rooms',component:RoomsComponent,canActivate:[RoomAuth]},
+  {path:'cart',component:CartComponent,canActivate:[CartAuth]},
   {path:'signup',component:SignupComponent},
-  {path:'allorders',component:AllordersComponent},
-  {path:'roomdetails',component:RoomdetailsComponent},
-  {path:'cdetails/:bid',component:CustomerdetailsComponent},
-  {path:'profile',component:MyprofileComponent},
+  {path:'allorders',component:AllordersComponent,canActivate:[AllOrderAuth]},
+  {path:'roomdetails',component:RoomdetailsComponent,canActivate:[RoomDetailsAuth]},
+  {path:'cdetails/:bid',component:CustomerdetailsComponent,canActivate:[CustomerDetailsAuth]},
+  {path:'profile',component:MyprofileComponent,canActivate:[MyProfileAuth]},
   {path:'**',component:NotFoundComponent}
 ];
 
@@ -68,7 +75,7 @@ const myRouts:Routes=[
     ButtonModule,
     TableModule
   ],
-  providers: [AdminCheck,LogOutEvent,LoginEvent],
+  providers: [AdminCheck,LogOutEvent,LoginEvent,HomeAuth,AllOrderAuth,CartAuth,CustomerDetailsAuth,MyProfileAuth,RoomDetailsAuth,RoomAuth],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

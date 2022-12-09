@@ -28,36 +28,26 @@ export class RoomdetailsComponent implements OnInit {
 
   ngOnInit(): void {
     
+    let room=this.route.snapshot.queryParams['roomnumber'];
 
-    let id=String(localStorage.getItem("id"));
-    if(id=="null")
+    if(String(localStorage.getItem("role"))=="admin")
     {
-      //LOGIN SHOW
-      this.router.navigate(["login"]);
+      this.showEdit=true;
     }
-    else
-    {
-      let room=this.route.snapshot.queryParams['roomnumber'];
 
-      if(String(localStorage.getItem("role"))=="admin")
+    this.http.get("https://workonits.co.in/OFFICE/getRoomDetails.php?room="+room)
+    .subscribe((response)=>{
+      this.roomnumber=response["hotel_name"];
+      this.bed=response["bed"];
+      this.flr=response["location"];
+      this.det=response["details"];
+      this.img=response["image"];
+      this.price=response["price"];
+      if(this.roomnumber.length>0)
       {
-        this.showEdit=true;
+        this.isVisable=true;
       }
-
-      this.http.get("https://workonits.co.in/OFFICE/getRoomDetails.php?room="+room)
-      .subscribe((response)=>{
-        this.roomnumber=response["hotel_name"];
-        this.bed=response["bed"];
-        this.flr=response["location"];
-        this.det=response["details"];
-        this.img=response["image"];
-        this.price=response["price"];
-        if(this.roomnumber.length>0)
-        {
-          this.isVisable=true;
-        }
-      });
-    }
+    });
   }
 
   //If image zoom in

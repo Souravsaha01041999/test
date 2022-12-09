@@ -26,17 +26,8 @@ export class AllordersComponent implements OnInit {
   showMessage=false;
 
   ngOnInit(): void {
-    //We are checkin here what is the role IF NOT LOGED IN OR NOT ADMIN THEN WE ARE REDIRECTING TO HOME
-    let myRole=String(localStorage.getItem("role"));
-    if(myRole=="null"||myRole!="admin")
-    {
-      //LOGIN REQUIRED HERE
-      this.router.navigate([""]);
-    }
-    else
-    {
-      this.loadData();
-    }
+    //We are loaded all data
+    this.loadData();
   }
 
   //Here loaded the data from the server into that application

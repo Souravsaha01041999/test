@@ -56,28 +56,21 @@ export class MyprofileComponent implements OnInit {
 
     //Getting login details if not login then go to login page or else component will work
     this.cid=String(localStorage.getItem("id"));
-    if(this.cid=="null")
-    {
-      //LOGIN SHOW
-      this.router.navigate([""]);
-    }
-    else
-    {
-        this.http.post("https://workonits.co.in/OFFICE/getProfile.php",{cid:this.cid})
-        .subscribe((response:UserDetails)=>{
-            this.userDetails=response;
-            if(this.userDetails.addharimage.includes(".jpg"))
-            {
-              this.userDetails.addharimage="https://workonits.co.in/OFFICE/addharimage/"+this.userDetails.addharimage;
-              this.showAImage=true;
-            }
-            if(this.userDetails.userimage.includes(".jpg"))
-            {
-              this.userDetails.userimage="https://workonits.co.in/OFFICE/image/"+this.userDetails.userimage;
-              this.showUImage=true;
-            }
-        });
-    }
+
+    this.http.post("https://workonits.co.in/OFFICE/getProfile.php",{cid:this.cid})
+    .subscribe((response:UserDetails)=>{
+        this.userDetails=response;
+        if(this.userDetails.addharimage.includes(".jpg"))
+        {
+          this.userDetails.addharimage="https://workonits.co.in/OFFICE/addharimage/"+this.userDetails.addharimage;
+          this.showAImage=true;
+        }
+        if(this.userDetails.userimage.includes(".jpg"))
+        {
+          this.userDetails.userimage="https://workonits.co.in/OFFICE/image/"+this.userDetails.userimage;
+          this.showUImage=true;
+        }
+    });
   }
 
   //When user will update data thet time this method will work
