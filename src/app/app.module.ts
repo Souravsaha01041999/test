@@ -33,6 +33,8 @@ import { CustomerDetailsAuth } from './AuthenticationService/CustomerDetailsAuth
 import { MyProfileAuth } from './AuthenticationService/MyProfileAuth';
 import { RoomDetailsAuth } from './AuthenticationService/RoomDetailsAuth';
 import { RoomAuth } from './AuthenticationService/RoomAuth';
+import { AddroomComponent } from './addroom/addroom.component';
+import { AddRoomAuth } from './AuthenticationService/AddRoomAuth';
 
 var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
 
@@ -46,6 +48,7 @@ const myRouts:Routes=[
   {path:'roomdetails',component:RoomdetailsComponent,canActivate:[RoomDetailsAuth]},
   {path:'cdetails/:bid',component:CustomerdetailsComponent,canActivate:[CustomerDetailsAuth]},
   {path:'profile',component:MyprofileComponent,canActivate:[MyProfileAuth]},
+  {path:'addroom',component:AddroomComponent,canActivate:[AddRoomAuth]},
   {path:'**',component:NotFoundComponent}
 ];
 
@@ -65,7 +68,8 @@ const myRouts:Routes=[
     CustomerdetailsComponent,
     CanvasJSChart,
     MyprofileComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    AddroomComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +79,7 @@ const myRouts:Routes=[
     ButtonModule,
     TableModule
   ],
-  providers: [AdminCheck,LogOutEvent,LoginEvent,HomeAuth,AllOrderAuth,CartAuth,CustomerDetailsAuth,MyProfileAuth,RoomDetailsAuth,RoomAuth],
+  providers: [AdminCheck,LogOutEvent,LoginEvent,HomeAuth,AllOrderAuth,CartAuth,CustomerDetailsAuth,MyProfileAuth,RoomDetailsAuth,RoomAuth,AddRoomAuth],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
