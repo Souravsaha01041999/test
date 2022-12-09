@@ -2,14 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-interface AllOrderDetails
-{
-  bookingid:string;
-  cid:string;
-  hotel_name:string;
-  date:string;
-  status:string;
-}
+import { AllOrderDetails } from './AllDetailsFile';
 
 @Component({
   selector: 'app-allorders',

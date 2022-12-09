@@ -3,21 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginEvent } from '../EventSender/LoginEvent';
 
-interface UserDetails
-{
-    cid:string;
-    username:string;
-    name:string;
-    email:string;
-    address:string;
-    addharnumber:string;
-    mdate:string;
-    mobile:string;
-    userimage:string;
-    addharimage:string;
-    ctime:string;
-    dob:string;
-}
+import { UserDetails } from './UserDetailsFile';
 
 @Component({
   selector: 'app-login',

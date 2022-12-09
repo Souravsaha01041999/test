@@ -1,17 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { map } from 'rxjs';
-
-interface HotelDetails
-{
-  hotel_name:string;
-  bed:string;
-  location:string;
-  details:string;
-  image:string;
-  price:string;
-}
+import { HotelDetails } from './HotelDetailsInfo';
 
 @Component({
   selector: 'app-rooms',

@@ -2,11 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-interface AxisPoints
-{
-  label:string;
-  y:number;
-}
+import { AxisPoints } from './PointDataFile';
 
 
 @Component({

@@ -1,15 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { BookingDetails } from './CartDetailsFile';
 
-interface BookingDetails
-{
-  bookingid:string;
-  cid:string;
-  hotel_name:string;
-  date:string;
-  status:string;
-}
 
 @Component({
   selector: 'app-cart',
