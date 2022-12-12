@@ -138,6 +138,8 @@ export class LoginComponent implements OnInit {
     }
   }
 
+
+  //It set the password fild type while click on check box
   chenagTye(pass:HTMLInputElement)
   {
     if(this.typeIS)
