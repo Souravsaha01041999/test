@@ -19,6 +19,8 @@ export class LoginComponent implements OnInit {
   isActive=true;
   showMessage=false;
 
+  typeIS=true;
+
   cross=false;
   tick=false;
   showSendOTP=false;
@@ -133,6 +135,19 @@ export class LoginComponent implements OnInit {
       this.tick=false;
       this.showSendOTP=false;
       this.cross=false;
+    }
+  }
+
+  chenagTye(pass:HTMLInputElement)
+  {
+    if(this.typeIS)
+    {
+      pass.type="text";
+      this.typeIS=!this.typeIS;
+    }
+    else{
+      pass.type="password";
+      this.typeIS=!this.typeIS;
     }
   }
 

@@ -14,6 +14,10 @@
         <br>
         <font class="emailID-style">Password</font>
         <input class="form-control text-my-style" #pass type="password" placeholder="Password">
+        
+        <div class="ch-holder">
+            <span class="show-pass">Show Password</span><input (click)="chenagTye(pass)" type="checkbox" class="form-check-input check-pos">
+        </div>
         <br>
         <button (click)="onLogin(pass)" class="btn btn-primary pos">Login</button>
         <br>
