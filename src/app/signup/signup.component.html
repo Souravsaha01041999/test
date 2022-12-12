@@ -60,7 +60,7 @@
                     <tr>
                         <td style="width: 50%;">
                             <p>Addhar Card Image</p>
-                            <input #aimg accept="image/*" type="file"><font class="font-style-my2">Addhar Card</font>
+                            <input #aimg accept="image/*" (input)="checkFileType(aimg)" type="file"><font class="font-style-my2">Addhar Card</font>
                         </td>
                         <td>
                             <p>DOB</p>

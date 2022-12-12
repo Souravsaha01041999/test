@@ -156,7 +156,20 @@ export class SignupComponent implements OnInit {
   //It fetch the image from the file and set priview into the component
   getImage(img:HTMLInputElement,disp:HTMLImageElement)
   {
-    disp.src=URL.createObjectURL(img.files[0]);
+    if(!img.files[0].name.includes(".jpg"))
+    {
+      this.showMessage=true;
+      this.disMsg="Please select jpg image";
+      img.value="";
+      setTimeout(()=>
+      {
+        this.showMessage=false;
+      },2000);
+    }
+    else{
+      disp.src=URL.createObjectURL(img.files[0]);
+    }
+    
   }
 
   //It checks the enterd data is mail or not
@@ -169,6 +182,20 @@ export class SignupComponent implements OnInit {
     else
     {
       this.isEmail=true;
+    }
+  }
+
+  checkFileType(f:HTMLInputElement)
+  {
+    if(!f.files[0].name.includes(".jpg"))
+    {
+      this.showMessage=true;
+      this.disMsg="Please select jpg image";
+      f.value="";
+      setTimeout(()=>
+      {
+        this.showMessage=false;
+      },2000);
     }
   }
 
