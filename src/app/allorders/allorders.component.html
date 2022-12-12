@@ -1,13 +1,12 @@
 <div *ngIf="showMessage" display-message [message]="disMsg"></div>
 <div class="radio-holder">
-    <input type="radio" (input)="onFilterChange($event)" value="all" name="filter" checked> &nbsp; <font class="pending">All</font>
-    &nbsp;
-    <input type="radio" (input)="onFilterChange($event)" value="pending" name="filter"> &nbsp; <font class="pending">Pending</font>
-    &nbsp;
-    <input type="radio" (input)="onFilterChange($event)" value="confirmed" name="filter"> &nbsp; <font class="conf">Confirm</font>
-    &nbsp;
-    <input type="radio" (input)="onFilterChange($event)" value="rejected" name="filter"> &nbsp; <font class="rej">Reject</font>
-    &nbsp;
+    <input type="radio" (input)="onFilterChange($event)" value="all" name="filter" checked>  <font class="pending">All</font>
+    
+    <input type="radio" (input)="onFilterChange($event)" value="pending" name="filter">  <font class="pending">Pending</font>
+    
+    <input type="radio" (input)="onFilterChange($event)" value="confirmed" name="filter">  <font class="conf">Confirm</font>
+    
+    <input type="radio" (input)="onFilterChange($event)" value="rejected" name="filter">  <font class="rej">Reject</font>
 </div>
 <br>
 <div class="data-holder">

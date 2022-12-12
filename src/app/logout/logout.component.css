@@ -1,0 +1,11 @@
+.holder
+{
+    position: relative;
+    top: 130px;
+    left: 38%;
+    padding: 50px;
+    width: max-content;
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: 0px 0px 3px 3px rgb(117, 112, 112);
+}

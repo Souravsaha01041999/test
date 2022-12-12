@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AdminCheck } from '../EventSender/adminEvent';
 import { LogOutEvent } from '../EventSender/LogoutEvent';
 
@@ -9,7 +10,7 @@ import { LogOutEvent } from '../EventSender/LogoutEvent';
 })
 export class NavigationstyleComponent implements OnInit {
 
-  constructor(private adminEvent:AdminCheck,private logoutEvent:LogOutEvent,private logout:LogOutEvent) { }
+  constructor(private adminEvent:AdminCheck,private logoutEvent:LogOutEvent,private logout:LogOutEvent,private router:Router) { }
 
   isAdmin=false;
   isShowNavigation=false;
@@ -55,6 +56,17 @@ export class NavigationstyleComponent implements OnInit {
       this.isAdmin=false;
       this.isShowNavigation=false;
     });
+  }
+
+  setLoginLogout(){
+    if(this.logMessage=="Logout")
+    {
+      this.router.navigate(["logout"]);
+    }
+    else
+    {
+      this.router.navigate(["login"]);
+    }
   }
 
 }

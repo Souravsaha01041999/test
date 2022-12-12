@@ -38,15 +38,15 @@ export class LoginComponent implements OnInit {
       //LOGIN SHOW
       this.isLogin=false;
     }
-    else{
-      //SHOW ALREADY LODIN
-      this.isLogin=true;
-      setTimeout(()=>{
-        localStorage.clear();
-        this.isLogin=false;
-        this.logoutEvent.subjectEvent.next();
-      },1000);
-    }
+    // else{
+    //   //SHOW ALREADY LODIN
+    //   this.isLogin=true;
+    //   setTimeout(()=>{
+    //     localStorage.clear();
+    //     this.isLogin=false;
+    //     this.logoutEvent.subjectEvent.next();
+    //   },1000);
+    // }
   }
 
   //Here clled to the login api
