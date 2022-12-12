@@ -14,6 +14,7 @@ export class CustomerdetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router) { }
 
   data: BookingDetails;
+  dshow:BookingDetails[]=[];
   ngOnInit(): void {
     this.loadSystem();
   }
@@ -25,7 +26,8 @@ export class CustomerdetailsComponent implements OnInit {
       .subscribe((response: BookingDetails) => {
         this.data = response;
         this.data.userimage = "https://workonits.co.in/OFFICE/image/" + this.data.userimage;
-        this.data.addharimage = "https://workonits.co.in/OFFICE/addharimage/" + this.data.addharimage
+        this.data.addharimage = "https://workonits.co.in/OFFICE/addharimage/" + this.data.addharimage;
+        this.dshow.push(this.data);
       });
   }
 
