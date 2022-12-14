@@ -33,7 +33,7 @@ export class SignupComponent implements OnInit {
     let formData = new FormData();
     let cid = String(new Date().getDate())+String(new Date().getMonth())+String(new Date().getFullYear())+String(new Date().getHours())+String(new Date().getMinutes());
 
-    if(this.username.length>0&&this.name.length>0&&this.email.length>0&&this.address.length>0&&this.anumber.length>0&&this.mobile.length>0&&aimg.files.length>0&&img.files.length>0&&this.dob.length>0&&this.password.length>0)
+    if(this.username.length>0&&this.name.length>0&&this.email.length>0&&this.address.length>0&&this.anumber.length>0&&this.mobile.length==10&&aimg.files.length>0&&img.files.length>0&&this.dob.length>0&&this.password.length>0)
     {
       if(this.password.length>5)
       {
@@ -112,7 +112,14 @@ export class SignupComponent implements OnInit {
     }
     else
     {
-      this.disMsg="Please Enter All Data";
+      if(this.mobile.length!=10)
+      {
+        this.disMsg="Please enter proper mobile number";
+      }
+      else
+      {
+        this.disMsg="Please Enter All Data";
+      }
       this.showMessage=true;
       setTimeout(()=>{
         this.showMessage=false;
@@ -192,6 +199,19 @@ export class SignupComponent implements OnInit {
       this.showMessage=true;
       this.disMsg="Please select jpg image";
       f.value="";
+      setTimeout(()=>
+      {
+        this.showMessage=false;
+      },2000);
+    }
+  }
+
+  checkDate(event:Event)
+  {
+    if(new Date((<HTMLInputElement>event.target).value).getTime()>=new Date().getTime())
+    {
+      this.showMessage=true;
+      this.disMsg="Please enter valid DOB";
       setTimeout(()=>
       {
         this.showMessage=false;

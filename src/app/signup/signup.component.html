@@ -64,7 +64,7 @@
                         </td>
                         <td>
                             <p>DOB</p>
-                            <input [(ngModel)]="dob" type="date">
+                            <input (input)="checkDate($event)" [(ngModel)]="dob" type="date">
                         </td>
                     </tr>
                     <tr>
